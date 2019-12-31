@@ -1,20 +1,17 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: >-
-  DataEngineering - An Amazon S3 trigger (bucket: prefix: ) that transforms data
-Parameters:
-  BucketNamePrefix:
-    Type: String
-    Default: domfp13-s3-bucket
+  DataEngineering - An Amazon S3 trigger that retrieves data from a .xlsx/.xls to a CSV file for project phoenix.
 Resources:
   DataEngineeringPhoenix:
     Type: 'AWS::Serverless::Function'
     Properties:
+      FunctionName: DataEngineering-Phoenix
       Handler: lambda_function.lambda_handler
       Runtime: python3.7
       CodeUri: .
       Description: >-
-        An Amazon S3 trigger that retrieves metadata for the object that has
-        been updated.
+        An Amazon S3 trigger that retrieves data from a .xlsx/.xls to a CSV file.
       MemorySize: 1024
-      Timeout: 450
+      Timeout: 900
+      Role: arn:aws:iam::833695691939:role/DE-Lambda
