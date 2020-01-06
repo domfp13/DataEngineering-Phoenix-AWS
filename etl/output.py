@@ -15,7 +15,7 @@ def decorator_to_bucket(function):
         BUCKET_NAME = os.environ['BUCKET_NAME']
 
         dictionary = {'bucketName': BUCKET_NAME, #This has to change for cc bucket
-                'destination_blob_name': f'phoenix/{filename}',
+                'destination_blob_name': f'phoenix/output/{filename}',
                 'source_file_name': f'/tmp/{filename}'}
 
         path = Path(dictionary['source_file_name'])
