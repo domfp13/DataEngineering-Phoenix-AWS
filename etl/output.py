@@ -12,7 +12,9 @@ def decorator_to_bucket(function):
 
         s3_client = boto3.client('s3')
 
-        dictionary = {'bucketName': 'domfp13-s3-bucket', #This has to change for cc bucket
+        BUCKET_NAME = os.environ['BUCKET_NAME']
+
+        dictionary = {'bucketName': BUCKET_NAME, #This has to change for cc bucket
                 'destination_blob_name': f'phoenix/{filename}',
                 'source_file_name': f'/tmp/{filename}'}
 

@@ -14,4 +14,7 @@ Resources:
         An Amazon S3 trigger that retrieves data from a .xlsx/.xls to a CSV file.
       MemorySize: 1024
       Timeout: 900
+      Environment:
+        Variables:
+          BUCKET_NAME: domfp13-s3-bucket
       Role: arn:aws:iam::833695691939:role/DE-Lambda
